@@ -1,0 +1,115 @@
+/* ============================= */
+/* General Page Styling */
+/* ============================= */
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f8fb;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* ============================= */
+/* Page Header */
+/* ============================= */
+
+h1 {
+    background-color: #0a4d68;
+    color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+h2 {
+    color: #0a4d68;
+    margin-top: 30px;
+}
+
+/* ============================= */
+/* Content Box */
+/* ============================= */
+
+.container {
+    width: 70%;
+    margin: 30px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+}
+
+/* ============================= */
+/* Form Styling */
+/* ============================= */
+
+input, select, textarea {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"], button {
+    background-color: #0a4d68;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover, button:hover {
+    background-color: #083b50;
+}
+
+/* ============================= */
+/* Result Styling */
+/* ============================= */
+
+.result-box {
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 8px;
+    width: 70%;
+}
+
+.cancer {
+    background-color: #ffe5e5;
+    color: #b30000;
+}
+
+.cystitis {
+    background-color: #e6fff2;
+    color: #006644;
+}
+
+/* ============================= */
+/* Navigation */
+/* ============================= */
+
+.navbar {
+    background-color: #083b50;
+    padding: 10px;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* ============================= */
+/* Disclaimer */
+/* ============================= */
+
+.disclaimer {
+    font-size: 13px;
+    color: gray;
+    margin-top: 20px;
+}

@@ -1,0 +1,47 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f8fb;
+    text-align: center;
+}
+
+.result-container {
+    margin-top: 50px;
+}
+
+.result-box {
+    padding: 20px;
+    margin: 20px auto;
+    width: 60%;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.cancer {
+    background-color: #ffe5e5;
+    color: #b30000;
+}
+
+.cystitis {
+    background-color: #e6fff2;
+    color: #006644;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #0a4d68;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #083b50;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    font-size: 14px;
+    color: gray;
+}
