@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Model Details - Bladder AI Diagnosis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body style="background-color: #f8f9fa">
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}"
+          >Bladder AI Diagnosis</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('model_page') }}"
+                >Model</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('predict_page') }}"
+                >Predict</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HEADER ================= -->
+    <section class="bg-success text-white text-center py-5">
+      <div class="container">
+        <h1>Deep Learning Model Architecture</h1>
+        <p class="lead">
+          Multimodal AI for Cystitis vs Bladder Cancer Classification
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= IMAGE BRANCH ================= -->
+    <section class="container py-5">
+      <h2 class="mb-4">1. Image Branch</h2>
+      <p>
+        We used <strong>EfficientNetB1</strong> pretrained on ImageNet for
+        extracting high-level image features from bladder scans. Fine-tuning was
+        applied in stage 2 to adapt the model for medical imaging.
+      </p>
+
+      <div class="alert alert-info">
+        Transfer Learning significantly improved performance with limited
+        medical data.
+      </div>
+    </section>
+
+    <!-- ================= CLINICAL BRANCH ================= -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <h2 class="mb-4">2. Clinical Branch</h2>
+        <p>
+          Clinical features such as Age, Creatinine, GFR, Smoking History,
+          Hematuria, etc., were processed using fully connected dense layers.
+        </p>
+        <p>
+          Feature scaling and normalization were applied before model training.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= MULTIMODAL FUSION ================= -->
+    <section class="container py-5">
+      <h2 class="mb-4">3. Multimodal Fusion</h2>
+      <p>
+        Image features from EfficientNetB1 and structured clinical features were
+        concatenated and passed through dense layers to produce final
+        classification.
+      </p>
+
+      <div class="alert alert-success">
+        Multimodal learning improves diagnostic robustness and reduces
+        misclassification.
+      </div>
+    </section>
+
+    <!-- ================= PERFORMANCE ================= -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">4. Model Performance</h2>
+
+        <div class="row text-center">
+          <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+              <h4>Accuracy</h4>
+              <h3 class="text-success">94%</h3>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+              <h4>AUC</h4>
+              <h3 class="text-success">0.97</h3>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+              <h4>Sensitivity</h4>
+              <h3 class="text-success">92%</h3>
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <div class="card shadow-sm p-3">
+              <h4>Specificity</h4>
+              <h3 class="text-success">95%</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= GRAD-CAM ================= -->
+    <section class="container py-5">
+      <h2 class="mb-4">5. Grad-CAM Explainability</h2>
+      <p>
+        Grad-CAM (Gradient-weighted Class Activation Mapping) was used to
+        visualize important regions influencing model predictions.
+      </p>
+
+      <div class="alert alert-warning">
+        This improves transparency and clinical trust in AI predictions.
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-white text-center py-3">
+      <p>© 2026 AI-Based Cystitis vs Bladder Cancer Detection System</p>
+      <p>
+        <small
+          >This system is for educational and research purposes only.</small
+        >
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

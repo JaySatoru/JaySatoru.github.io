@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prediction - Bladder AI Diagnosis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body style="background-color: #f8f9fa">
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}"
+          >Bladder AI Diagnosis</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('model_page') }}">Model</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('predict_page') }}"
+                >Predict</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HEADER ================= -->
+    <section class="bg-primary text-white text-center py-5">
+      <div class="container">
+        <h1>Bladder Disease Prediction</h1>
+        <p class="lead">Upload Cystoscopy Image and Clinical Data</p>
+      </div>
+    </section>
+
+    <!-- ================= FORM SECTION ================= -->
+    <section class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="card shadow-lg p-4">
+            <h3 class="text-center mb-4">Patient Details</h3>
+
+            <form method="POST">
+              <!-- Test Folder -->
+              <div class="mb-3">
+                <label class="form-label">Test Folder Path</label>
+                <input
+                  type="text"
+                  name="test_folder"
+                  class="form-control"
+                  placeholder="C:\Users\...\test"
+                  required
+                />
+              </div>
+
+              <hr />
+              <h5 class="mt-4">Enter Clinical Details</h5>
+
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label>Age</label>
+                  <input
+                    type="number"
+                    name="age"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Gender (0 = Female, 1 = Male)</label>
+                  <input
+                    type="number"
+                    name="gender"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Hemoglobin</label>
+                  <input
+                    type="number"
+                    step="any"
+                    name="hemoglobin"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>WBC Count</label>
+                  <input
+                    type="number"
+                    step="any"
+                    name="wbc"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Platelets</label>
+                  <input
+                    type="number"
+                    step="any"
+                    name="platelets"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Hematuria (0/1)</label>
+                  <input
+                    type="number"
+                    name="hematuria"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Dysuria (0/1)</label>
+                  <input
+                    type="number"
+                    name="dysuria"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Smoking (0/1)</label>
+                  <input
+                    type="number"
+                    name="smoking"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Family History (0/1)</label>
+                  <input
+                    type="number"
+                    name="family_history"
+                    class="form-control"
+                    required
+                  />
+                </div>
+
+                <div class="col-md-6 mb-3">
+                  <label>Chronic Infection (0/1)</label>
+                  <input
+                    type="number"
+                    name="chronic_infection"
+                    class="form-control"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="d-grid mt-3">
+                <button type="submit" class="btn btn-success btn-lg">
+                  Run Test Prediction
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-white text-center py-3">
+      <p>© 2026 AI-Based Cystitis vs Bladder Cancer Detection System</p>
+      <p>
+        <small
+          >This system is for educational and research purposes only.</small
+        >
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

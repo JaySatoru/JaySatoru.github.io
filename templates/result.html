@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Medical Report - Bladder AI Diagnosis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      @media print {
+        .no-print {
+          display: none;
+        }
+      }
+
+      .gradcam-img {
+        border: 2px solid #dee2e6;
+        border-radius: 8px;
+        padding: 5px;
+        background: #fff;
+      }
+    </style>
+  </head>
+
+  <body style="background-color: #f8f9fa">
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark no-print">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}">
+          Bladder AI Diagnosis
+        </a>
+      </div>
+    </nav>
+
+    <!-- HEADER -->
+    <section class="bg-primary text-white text-center py-4 no-print">
+      <div class="container">
+        <h2>AI-Based Bladder Disease Diagnostic Report</h2>
+      </div>
+    </section>
+
+    <!-- REPORT SECTION -->
+    <section class="container py-5">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <div class="card shadow-lg p-5" id="reportSection">
+            <!-- Hospital Header -->
+            <div class="text-center mb-4">
+              <h3>Bladder AI Diagnostic Center</h3>
+              <p>AI-Based Cystitis vs Bladder Cancer Detection System</p>
+              <hr />
+            </div>
+
+            <!-- Patient Details -->
+            <h5 class="mb-3">Patient Clinical Details</h5>
+            <table class="table table-bordered">
+              <tr>
+                <th>Age</th>
+                <td>{{ age }}</td>
+              </tr>
+              <tr>
+                <th>Gender</th>
+                <td>{{ gender }}</td>
+              </tr>
+              <tr>
+                <th>Hemoglobin</th>
+                <td>{{ hemoglobin }} g/dL</td>
+              </tr>
+              <tr>
+                <th>WBC Count</th>
+                <td>{{ wbc }}</td>
+              </tr>
+              <tr>
+                <th>Platelets</th>
+                <td>{{ platelets }}</td>
+              </tr>
+              <tr>
+                <th>Hematuria</th>
+                <td>{{ hematuria }}</td>
+              </tr>
+              <tr>
+                <th>Dysuria</th>
+                <td>{{ dysuria }}</td>
+              </tr>
+              <tr>
+                <th>Smoking History</th>
+                <td>{{ smoking }}</td>
+              </tr>
+              <tr>
+                <th>Family History</th>
+                <td>{{ family_history }}</td>
+              </tr>
+              <tr>
+                <th>Chronic Infection</th>
+                <td>{{ chronic_infection }}</td>
+              </tr>
+              <tr>
+                <th>Total Images Evaluated</th>
+                <td>{{ total }}</td>
+              </tr>
+            </table>
+
+            <hr />
+
+            <!-- Prediction Results -->
+            <h5 class="mb-3">Prediction Summary</h5>
+
+            <div class="alert alert-danger">
+              <strong>Bladder Cancer Probability:</strong>
+              {{ cancer_percentage }}%
+            </div>
+
+            <div class="alert alert-success">
+              <strong>Cystitis (Non-Cancer) Probability:</strong>
+              {{ cystitis_percentage }}%
+            </div>
+
+            <hr />
+
+            <!-- Final Interpretation -->
+            <h5>Final Interpretation</h5>
+
+            {% if cancer_percentage > cystitis_percentage %}
+            <p class="text-danger fw-bold">
+              ⚠ The model indicates higher likelihood of Bladder Cancer.
+              Immediate clinical evaluation is recommended.
+            </p>
+            {% else %}
+            <p class="text-success fw-bold">
+              ✓ The model indicates higher likelihood of Cystitis (Non-Cancer).
+              Clinical consultation is advised for confirmation.
+            </p>
+            {% endif %}
+
+            <hr />
+
+            <!-- ============================= -->
+            <!-- GRAD-CAM VISUALIZATION SECTION -->
+            <!-- ============================= -->
+
+            <h5 class="mt-4">Grad-CAM Visual Explanations</h5>
+            <p class="text-muted small">
+              The following heatmaps highlight regions that influenced the AI
+              model’s decision. Red areas indicate higher activation regions.
+            </p>
+
+            <div class="row">
+              {% for img in gradcam_images %}
+              <div class="col-md-4 mb-4 text-center">
+                <img
+                  src="{{ url_for('static', filename=img) }}"
+                  class="img-fluid gradcam-img shadow"
+                />
+              </div>
+              {% endfor %}
+            </div>
+
+            <hr />
+
+            <!-- Disclaimer -->
+            <p class="text-muted small">
+              Disclaimer: This AI system is developed for academic and research
+              purposes only. It should not replace professional medical
+              diagnosis.
+            </p>
+          </div>
+
+          <!-- BUTTONS -->
+          <div class="text-center mt-4 no-print">
+            <button onclick="window.print()" class="btn btn-success btn-lg">
+              🖨 Print Report
+            </button>
+
+            <a
+              href="{{ url_for('predict_page') }}"
+              class="btn btn-primary btn-lg"
+            >
+              Test Another Folder
+            </a>
+
+            <a href="{{ url_for('home') }}" class="btn btn-secondary btn-lg">
+              Back to Home
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-dark text-white text-center py-3 no-print">
+      <small>© 2026 AI-Based Bladder Detection System</small>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

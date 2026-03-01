@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>About - Bladder AI Diagnosis</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body style="background-color: #f8f9fa">
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{{ url_for('home') }}"
+          >Bladder AI Diagnosis</a
+        >
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('model_page') }}">Model</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('predict_page') }}"
+                >Predict</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ================= HEADER ================= -->
+    <section class="bg-primary text-white text-center py-5">
+      <div class="container">
+        <h1>About the Project</h1>
+        <p class="lead">
+          Deep Learning-Based Differentiation of Cystitis and Bladder Cancer
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= PROJECT OVERVIEW ================= -->
+    <section class="container py-5">
+      <h2 class="mb-4">Project Overview</h2>
+      <p>
+        This project aims to differentiate Cystitis and Bladder Cancer using a
+        multimodal deep learning approach. The system integrates medical image
+        analysis with clinical laboratory parameters to assist in early and
+        accurate diagnosis.
+      </p>
+    </section>
+
+    <!-- ================= MEDICAL BACKGROUND ================= -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <h2 class="mb-4 text-center">Medical Background</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Cystitis</h4>
+            <p>
+              Cystitis is inflammation of the bladder, usually caused by
+              infection. Symptoms may include pain, burning during urination,
+              and blood in urine.
+            </p>
+          </div>
+          <div class="col-md-6">
+            <h4>Bladder Cancer</h4>
+            <p>
+              Bladder cancer involves abnormal growth of cells in the bladder
+              lining. Early symptoms may resemble cystitis, making
+              differentiation challenging.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= METHODOLOGY ================= -->
+    <section class="container py-5">
+      <h2 class="mb-4">Methodology</h2>
+      <p>
+        The system uses EfficientNetB1 for image feature extraction and fully
+        connected layers for clinical data processing. Both branches are
+        combined to produce a final prediction.
+      </p>
+      <p>
+        Grad-CAM visualization is used to highlight image regions that influence
+        classification decisions, making the model explainable.
+      </p>
+    </section>
+
+    <!-- ================= TECHNOLOGIES ================= -->
+    <section class="bg-light py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">Technologies Used</h2>
+        <div class="row text-center">
+          <div class="col-md-3"><h5>Python</h5></div>
+          <div class="col-md-3"><h5>TensorFlow</h5></div>
+          <div class="col-md-3"><h5>Flask</h5></div>
+          <div class="col-md-3"><h5>Bootstrap</h5></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-dark text-white text-center py-3">
+      <p>© 2026 AI-Based Cystitis vs Bladder Cancer Detection System</p>
+      <p>
+        <small
+          >This system is for educational and research purposes only.</small
+        >
+      </p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
